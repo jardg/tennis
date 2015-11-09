@@ -4,8 +4,71 @@
   <meta charset="UTF-8" />
 
   <title>Tennis</title>
+  <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link href="content/site.css" rel="stylesheet" />
 </head>
 <body>
+  <div class="container-fluid">
+    <div class="col-xs-11 col-sm-5 well form-area">
+      <form role="form">
+        <div class="col-xs-4 col-sm-3 ">
+          <div class="form-group">
+            <label class="sr-only" for="playername">Email:</label>
+            <input type="text" class="form-control" id="playername" placeholder="Player name">
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-3 ">
+          <div class="form-group">
+            <label class="sr-only" for="rank">Rank:</label>
+            <input type="number" class="form-control" id="rank" placeholder="Rank">
+          </div>
+        </div>
+        <div class=" col-xs-1 col-sm-offset-1">
+          <input type="button" class="btn btn-default" value="Add player"id="btnAddPlayer">
+        </div>
 
+        <div class="col-xs-7">
+          <table class="table" id="tourneyPlayersList">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Clasificación</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+
+
+            <div class=" col-sm-offset-3 col-sm-3 col-xs-12 top-buffer">
+        <input type="submit" class="btn btn-info" value="Create tournament">
+
+      </div>
+      <div class="col-xs-7 marginformelements" >
+        <div class="well-large alert alert-danger" id="errorsummary">
+          aasas
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="jspm_packages/system.js"></script>
+<script src="config.js"></script>
+<script>
+System.import('app/app.js');
+</script>
 </body>
-  </html>
+</html>
