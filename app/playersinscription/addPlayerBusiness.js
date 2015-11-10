@@ -38,6 +38,7 @@ function addnewPlayer(newplayer){
     "<td>"+newplayer.name+"</td>"+
     "<td>"+newplayer.rank+"</td>"+
     "</tr>");
+    
 }
 export function getErrorMessage(error) {
   var message = "";

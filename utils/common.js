@@ -11,3 +11,6 @@ export function isDuplicated(text){
 	});
 	return duplicated;
 }
+export function power_of_2(n) {
+    return n && (n & (n - 1)) === 0;
+}

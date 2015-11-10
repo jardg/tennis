@@ -22,11 +22,9 @@ function showOrHideErrorMessage(validationResult) {
 		$errorSummary.show('slow');
 	}
 }
+export function addPlayer(){
+	var newplayer=getPlayerProperties();
 
-export function init() {
-	$('#btnAddPlayer').on('click', function() {
-    var newplayer=getPlayerProperties();
-	  var validationResult=playerValidation.validateData(newplayer);
-		showOrHideErrorMessage(validationResult);
-	});
+	var validationResult=playerValidation.validateData(newplayer);
+	showOrHideErrorMessage(validationResult);
 }
