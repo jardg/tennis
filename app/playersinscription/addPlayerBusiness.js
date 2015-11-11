@@ -1,4 +1,5 @@
 import * as common from '../../utils/common';
+var listofPlayers=[];
 export function validateData(newplayer){
   var validationResult = {
     success: true,
@@ -32,13 +33,18 @@ function isrankCorrect(rank){
   return rank>0;
 }
 
-function addnewPlayer(newplayer){
-  $('#tourneyPlayersList tr:last').after(
+export function addnewPlayer(newplayer){
+  $('#tourneyPlayersList tbody').append(
     "<tr>"+
     "<td>"+newplayer.name+"</td>"+
     "<td>"+newplayer.rank+"</td>"+
     "</tr>");
-    
+    listofPlayers.push(newplayer);
+
+}
+export function getListofPlayers(){
+  return listofPlayers;
+
 }
 export function getErrorMessage(error) {
   var message = "";

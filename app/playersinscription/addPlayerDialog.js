@@ -1,13 +1,11 @@
 import * as playerValidation from './addPlayerBusiness';
+import {Player} from '../Player';
 
 function getPlayerProperties() {
-	var player = {
-		name: $('#playername')[0].value,
-		rank: $('#rank')[0].value
-	};
-$('#playername')[0].value='';
-$('#rank')[0].value='';
-	return player;
+	var name=$('#playername')[0].value;
+	var rank=$('#rank')[0].value;
+	cleanPlayerFromForm();
+	return new Player(name,rank);
 }
 
 function showOrHideErrorMessage(validationResult) {
@@ -24,7 +22,10 @@ function showOrHideErrorMessage(validationResult) {
 }
 export function addPlayer(){
 	var newplayer=getPlayerProperties();
-
 	var validationResult=playerValidation.validateData(newplayer);
 	showOrHideErrorMessage(validationResult);
+}
+function cleanPlayerFromForm(){
+	$('#playername')[0].value='';
+	$('#rank')[0].value='';
 }
