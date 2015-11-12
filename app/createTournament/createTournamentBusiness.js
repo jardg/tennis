@@ -5,25 +5,23 @@ import * as Math from '../../node_modules/mathjs/dist/math.min';
 
 export function validateNumberofPlayers(){
 
-var numberofPlayers = $('#tourneyPlayersList  >tbody >tr').length;
+  var numberofPlayers = $('#tourneyPlayersList  >tbody >tr').length;
   // 2^n in the future
-var validationResult={
-  success:true,
-  error:null
-};
+  var validationResult={
+    success:true,
+    error:null
+  };
   if(numberofPlayers<8){
     validationResult.success=false;
     validationResult.error = {
-
-      lessthanrequired:true
-    };
-        addGhostPlayer(8-numberofPlayers);
+    lessthanrequired:true
+  };
+  addGhostPlayer(8-numberofPlayers);
   }
   if(numberofPlayers>8){
     validationResult.success=false;
     validationResult.error = {
-
-      morethanrequired:true
+    morethanrequired:true
     };
   }
   return validationResult;

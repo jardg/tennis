@@ -22,4 +22,5 @@ export function createTournament(){
  var listofPlayers=getListofPlayers();
  showOrHideErrorMessage(validationResult);
  var tennisTournament=new Tournament(listofPlayers);
+ tennisTournament.maketheRounds();
 }
