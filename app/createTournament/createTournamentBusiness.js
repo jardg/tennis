@@ -29,7 +29,13 @@ export function validateNumberofPlayers(){
 
 function addGhostPlayer(number){
   for (var i=0;i<number;i++){
-    playerValidation.addnewPlayer(new Player("Invited player number "+(i+1),addRandomRank()));
+    playerValidation.addnewPlayer(new Player("Invited player "+(i+1),i));
+//=====================================>
+//=====================================>
+//=====================================>
+//=====================================>
+//=====================================>
+    //solo para test sustituir luego por addRandomRank()
   }
 }
 function addRandomRank(){

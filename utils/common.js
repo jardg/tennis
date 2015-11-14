@@ -17,3 +17,10 @@ export function power_of_2(n) {
 export function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+export function shuffle(objecttoShuffle){
+    for(var j, x, i = objecttoShuffle.length; i; j = Math.floor(Math.random() * i), x = objecttoShuffle[--i], objecttoShuffle[i] = objecttoShuffle[j], objecttoShuffle[j] = x);
+    return objecttoShuffle;
+}
+export function itstheNumberOdd(number){
+	return !number% 2 ===0;
+}

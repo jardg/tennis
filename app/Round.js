@@ -1,12 +1,24 @@
+import {Match} from './Match.js';
 export class Round{
   constructor(numberofMatches){
     this._numberofMatches=numberofMatches;
     this._Matches=[];
   }
-  addMatches(){
-
+  get numberofMatches() {
+      return this._numberofMatches;
   }
-  maketheMatches(){
-
+  set numberofMatches(numberofMatches) {
+      this._numberofMatches = numberofMatches;
   }
+  get Matches() {
+      return this._Matches;
+  }
+  set Matches(Matches) {
+      this._Matches = Matches;
+  }
+  addMatch(Player1,Player2){
+    
+    this._Matches.push(new Match(Player1,Player2));
+  }
+
 }

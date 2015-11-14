@@ -1,7 +1,7 @@
 import * as tournamentValidation from './createTournamentBusiness.js';
 import {getListofPlayers} from '../playersinscription/addPlayerBusiness.js';
-import {Tournament} from '../Tournament.js'
 
+import * as tournamentBusiness from '../tournamentBusiness.js'
 
 function showOrHideErrorMessage(validationResult) {
 	var $errorSummary = $('#errorsummary');
@@ -16,11 +16,13 @@ function showOrHideErrorMessage(validationResult) {
 	}
 }
 
-export function createTournament(){
+export function createTournamentDialog(){
  $(this).prop("disabled",true);
  var validationResult=tournamentValidation.validateNumberofPlayers();
  var listofPlayers=getListofPlayers();
  showOrHideErrorMessage(validationResult);
- var tennisTournament=new Tournament(listofPlayers);
- tennisTournament.maketheRounds();
+// if (validationResult.success) {
+	 tournamentBusiness.startTournament(listofPlayers);
+ //}
+
 }
