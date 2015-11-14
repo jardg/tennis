@@ -22,5 +22,5 @@ export function shuffle(objecttoShuffle){
     return objecttoShuffle;
 }
 export function itstheNumberOdd(number){
-	return !number% 2 ===0;
+	return number% 2 ===0;
 }
