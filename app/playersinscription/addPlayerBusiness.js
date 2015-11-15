@@ -1,5 +1,7 @@
 import * as common from '../../utils/common';
-var listofPlayers=[];
+import {Player} from '../Player.js'
+import * as tournamentBusiness from '../tournamentBusiness.js';
+import {drawPlayer} from '../drawTournament.js';
 export function validateData(newplayer){
   var validationResult = {
     success: true,
@@ -17,7 +19,7 @@ export function validateData(newplayer){
       ranknumber: true
     };
   }
-  else if(common.isDuplicated(newplayer.name) || common.isDuplicated(newplayer.rank) ){
+  else if(isNameDuplicated(newplayer.name)!=undefined || isRankDuplicated(newplayer.rank)!=undefined ){
     validationResult.success=false;
     validationResult.error = {
       duplicated: true
@@ -28,23 +30,22 @@ export function validateData(newplayer){
   }
   return validationResult;
 }
-
 function isrankCorrect(rank){
   return rank>0;
 }
-
 export function addnewPlayer(newplayer){
-  $('#tourneyPlayersList tbody').append(
-    "<tr>"+
-    "<td>"+newplayer.name+"</td>"+
-    "<td>"+newplayer.rank+"</td>"+
-    "</tr>");
-    listofPlayers.push(newplayer);
-
+    if(isNameDuplicated(newplayer.name)===undefined&&isRankDuplicated(newplayer.rank)===undefined){
+      drawPlayer(newplayer);
+      tournamentBusiness.addPlayerstotheList(newplayer);
+    }
 }
-export function getListofPlayers(){
-  return listofPlayers;
-
+function isNameDuplicated(playerName){
+  var tournamentplayers=tournamentBusiness.getListofPlayers()
+  return tournamentplayers.find(function(a){return a.name===playerName;});
+}
+function isRankDuplicated(playerRank){
+  var tournamentplayers=tournamentBusiness.getListofPlayers()
+  return tournamentplayers.find(function(a){return a.rank===playerRank;});
 }
 export function getErrorMessage(error) {
   var message = "";

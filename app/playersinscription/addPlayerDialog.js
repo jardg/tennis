@@ -1,19 +1,15 @@
 import * as playerValidation from './addPlayerBusiness';
 import {Player} from '../Player';
-
 function getPlayerProperties() {
 	var name=$('#playername')[0].value;
 	var rank=$('#rank')[0].value;
 	cleanPlayerFromForm();
 	return new Player(name,rank);
 }
-
 function showOrHideErrorMessage(validationResult) {
 	var $errorSummary = $('#errorsummary');
-
 	if (validationResult.success) {
 		$errorSummary.hide('slow');
-
 	} else {
 		var message = playerValidation.getErrorMessage(validationResult.error);
 		$errorSummary[0].innerText = message;

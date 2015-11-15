@@ -3,8 +3,7 @@ import {Round} from './Round.js';
 import {shuffle} from '../utils/common.js'
 export class Tournament{
   constructor(Players){
-    this._Players=Players.sort(function(a,b){
-      return a.rank-b.rank}).slice(0,8);
+    this._Players=Players;
     this._tournamentRounds=[];
   }
   get Players(){
@@ -22,7 +21,6 @@ export class Tournament{
         round.generateMatches();
         this._tournamentRounds.push(round);
     }
-
   }
   fillFirstRound(){
     var favourites=shuffle(this._Players.slice(0,this._Players.length/2));

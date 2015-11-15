@@ -18,14 +18,10 @@ export class Round{
   }
   generateMatches(){
     for(var i=0;i<this.numberofMatches;i++){
-    
       this._Matches.push(new Match());
     }
-
   }
   addMatch(Player1,Player2){
-
     this._Matches.push(new Match(Player1,Player2));
   }
-
 }

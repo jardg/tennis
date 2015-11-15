@@ -1,11 +1,8 @@
-import * as tournamentValidation from './createTournamentBusiness.js';
-import {getListofPlayers} from '../playersinscription/addPlayerBusiness.js';
-
+import * as tournamentValidation from './validateTournament.js';
 import * as tournamentBusiness from '../tournamentBusiness.js'
-
 function showOrHideErrorMessage(validationResult) {
 	var $errorSummary = $('#errorsummary');
-	if (validationResult.success) {
+	if (validationResult.error===null) {
 		$errorSummary.hide('slow');
 	} else {
 		var message = tournamentValidation.getErrorMessage(validationResult.error);
@@ -13,14 +10,12 @@ function showOrHideErrorMessage(validationResult) {
 		$errorSummary.show('slow');
 	}
 }
-
 export function createTournamentDialog(){
- $(this).prop("disabled",true);
- var validationResult=tournamentValidation.validateNumberofPlayers();
- var listofPlayers=getListofPlayers();
+ var listofPlayers=tournamentBusiness.getListofPlayers();
+ var validationResult=tournamentValidation.validateNumberofPlayers(listofPlayers.length);
  showOrHideErrorMessage(validationResult);
-// if (validationResult.success) {
-	 tournamentBusiness.startTournament(listofPlayers);
- //}
-
+ if(validationResult.error===null ||validationResult.error.lessthanrequired===undefined){
+	 $(this).prop("disabled",true);
+	 tournamentBusiness.startTournament(validationResult);
+ }
 }

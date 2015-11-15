@@ -1,5 +1,4 @@
 import $ from 'jquery';
 import {init} from '/../app/UI.js';
-$(function() {
+import * as playerTest from '../utils/generatePlayersforTesting.js';
   init();
-});

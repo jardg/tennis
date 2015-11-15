@@ -1,16 +1,6 @@
 export function isEmpty(text) {
 	return !text;
 }
-export function isDuplicated(text){
-	var duplicated=false;
-	$('#tourneyPlayersList td').each(function(){
-		var playernameinthisRow=$(this).text().toLowerCase();
-		if(text.toLowerCase()===playernameinthisRow){
-			duplicated=true;
-		}
-	});
-	return duplicated;
-}
 export function isPowerof2(n) {
     return n && (n & (n - 1)) === 0;
 }
@@ -23,4 +13,7 @@ export function shuffle(objecttoShuffle){
 }
 export function itstheNumberOdd(number){
 	return number% 2 ===0;
+}
+export function floorPowerof2NumberNeartoaNumber(number){
+	return Math.pow(2, Math.floor(Math.log(number)/Math.log(2)));
 }

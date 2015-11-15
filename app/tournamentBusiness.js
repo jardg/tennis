@@ -2,10 +2,16 @@ import {Tournament} from './Tournament.js';
 import {Match} from './Match.js';
 import {Round} from './Round.js';
 import {Player} from './Player.js';
+import {addGhostPlayer} from './playersinscription/addPlayerBusiness.js';
 import * as drawTournament from './drawTournament.js';
 import * as common from '../utils/common.js'
 var tennisTournament;
-export function startTournament(listofPlayers){
+var listofPlayers=[];
+export function startTournament(validationResult){
+  if (validationResult.error){
+    listofPlayers.sort(function(a,b){return a.rank-b.rank});
+    listofPlayers=listofPlayers.slice(0,common.floorPowerof2NumberNeartoaNumber(listofPlayers.length));
+  }
   tennisTournament=new Tournament(listofPlayers);
   tennisTournament.maketheRounds();
   tennisTournament.fillFirstRound();
@@ -14,7 +20,6 @@ export function startTournament(listofPlayers){
 export function playMatch(winnerPosition,Matchposition,roundofTournament){//0 for top
   if(isLastMatch(roundofTournament)){
     drawTournament.showCongratulationsMessage()
-
   }else{
     advanceRound(winnerPosition,Matchposition,roundofTournament);
   }
@@ -52,4 +57,10 @@ function getWinner(matchPosition,roundofTournament,winnerPosition){
 }
 function isMatchPrepared(Player1,Player2){
   return (!(Player1===undefined||Player2===undefined));
+}
+export function addPlayerstotheList(newplayer){
+  listofPlayers.push(newplayer);
+}
+export function getListofPlayers(){
+  return listofPlayers;
 }

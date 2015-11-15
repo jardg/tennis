@@ -6,7 +6,13 @@ export function start(tennisTournament){
   }
   drawFirstMatches(tennisTournament.tournamentRounds[0]);
 }
-
+export function drawPlayer(newplayer){
+  $('#tourneyPlayersList tbody').append(
+    "<tr>"+
+    "<td>"+newplayer.name+"</td>"+
+    "<td>"+newplayer.rank+"</td>"+
+    "</tr>");
+}
 function drawRound(round,numberoftheRound){
   $('#tournament-box').append(
     "<div class='col-xs-3' id='round" +
@@ -44,7 +50,7 @@ function drawFirstMatches(firstRound){
 export function drawMatch(Match,Matchposition,roundofTournament){
   $('#round'+roundofTournament).find('#round'+roundofTournament+'match'+Matchposition)
   .append(
-    Match.Player1.name+
+     Match.Player1.name+
      "<input type='button' class='btn btn-default' value='Win'id='"+
      "round"+
      roundofTournament+
@@ -52,6 +58,7 @@ export function drawMatch(Match,Matchposition,roundofTournament){
      Matchposition+
      "Player0Wins'"+
      ">"+
+
      "<p>"+
      Match.Player2.name+
      "<input type='button' class='btn btn-default' value='Win'id='"+
@@ -62,9 +69,7 @@ export function drawMatch(Match,Matchposition,roundofTournament){
      "Player1Wins'"+
      ">"
    );
-      addButtonClicks(roundofTournament,Matchposition);
-
-//Comprobar si esta vacio en negocio antes de añadir el jugador
+   addButtonClicks(roundofTournament,Matchposition);
 }
 export function showCongratulationsMessage(){
   $('#finished')[0].innerText = "Congratulations to the winner";
