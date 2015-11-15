@@ -5,10 +5,8 @@ import * as tournamentBusiness from '../tournamentBusiness.js'
 
 function showOrHideErrorMessage(validationResult) {
 	var $errorSummary = $('#errorsummary');
-
 	if (validationResult.success) {
 		$errorSummary.hide('slow');
-
 	} else {
 		var message = tournamentValidation.getErrorMessage(validationResult.error);
 		$errorSummary[0].innerText = message;

@@ -13,8 +13,8 @@ export function startTournament(listofPlayers){
 }
 export function playMatch(winnerPosition,Matchposition,roundofTournament){//0 for top
   if(isLastMatch(roundofTournament)){
-    $('#finished')[0].innerText = "Congratulations to the winner";
-    $('#finished').show('slow');
+    drawTournament.showCongratulationsMessage()
+
   }else{
     advanceRound(winnerPosition,Matchposition,roundofTournament);
   }

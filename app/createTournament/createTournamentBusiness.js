@@ -2,11 +2,9 @@ import * as common from '../../utils/common';
 import * as playerValidation from '../playersinscription/addPlayerBusiness';
 import {Player} from '../Player';
 import * as Math from '../../node_modules/mathjs/dist/math.min';
-
+import  {Tournament} from '../Tournament.js';
 export function validateNumberofPlayers(){
-
   var numberofPlayers = $('#tourneyPlayersList  >tbody >tr').length;
-  // 2^n in the future
   var validationResult={
     success:true,
     error:null
@@ -14,32 +12,27 @@ export function validateNumberofPlayers(){
   if(numberofPlayers<8){
     validationResult.success=false;
     validationResult.error = {
-    lessthanrequired:true
-  };
-  addGhostPlayer(8-numberofPlayers);
+      lessthanrequired:true
+    };
+    addGhostPlayer(8-numberofPlayers);
   }
   if(numberofPlayers>8){
     validationResult.success=false;
     validationResult.error = {
-    morethanrequired:true
+      morethanrequired:true
     };
   }
   return validationResult;
 }
 
 function addGhostPlayer(number){
+
   for (var i=0;i<number;i++){
-    playerValidation.addnewPlayer(new Player("Invited player "+(i+1),i));
-//=====================================>
-//=====================================>
-//=====================================>
-//=====================================>
-//=====================================>
-    //solo para test sustituir luego por addRandomRank()
+    playerValidation.addnewPlayer(new Player("Invited player "+(i+1),addRandomRank()));
   }
 }
 function addRandomRank(){
-
+  //getRankoftheWorstPlayerAddedbyUser()
   do{
     var randomRankForInvitedPlayer=common.getRandomInt(1,100);
 

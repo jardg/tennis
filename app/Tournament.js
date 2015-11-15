@@ -3,7 +3,8 @@ import {Round} from './Round.js';
 import {shuffle} from '../utils/common.js'
 export class Tournament{
   constructor(Players){
-    this._Players=Players.sort(function(a,b){return a.rank-b.rank}).slice(0,8);
+    this._Players=Players.sort(function(a,b){
+      return a.rank-b.rank}).slice(0,8);
     this._tournamentRounds=[];
   }
   get Players(){
@@ -20,9 +21,6 @@ export class Tournament{
         var round=new Round(i/2);
         round.generateMatches();
         this._tournamentRounds.push(round);
-      //  alert("kappa");
-      //  this._tournamentRounds.push(new Round(i/2));
-
     }
 
   }
@@ -30,22 +28,17 @@ export class Tournament{
     var favourites=shuffle(this._Players.slice(0,this._Players.length/2));
     var underdogs=shuffle(this._Players.slice(this._Players.length/2,this._Players.length));
     for (var i=0;i<this._Players.length/2;i++){//cambiar this._Players.length/2 por _numberofMatches
-
       this._tournamentRounds[0].Matches[i].Player1=favourites[i];
-    //  alert(this._tournamentRounds[0].Matches[i].Player1.name);
       this._tournamentRounds[0].Matches[i].Player2=underdogs[i];
-    //  alert(this._tournamentRounds[0].Matches[i].Player2.name);
-    //  this._tournamentRounds[0].addMatch(favourites[i],underdogs[i]);
     }
-
-    /*for (var j=0;j<4;j++){
-        alert(this._tournamentRounds[0].Matches[j].Player1.name);
-    }*/
-
   }
   getNumberofRounds(){
     return   this._tournamentRounds.length;
   }
-
-
+  getNumberofPlayers(){
+    return this._Players.length();
+  }
+  getRankoftheWorstPlayerAddedbyUser(){
+    return Math.max.apply(Math,this._Players.rank);
+  }
 }

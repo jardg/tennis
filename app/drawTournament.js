@@ -26,22 +26,7 @@ function drawRound(round,numberoftheRound){
 }
 function drawFirstMatches(firstRound){
   for(var i=0;i<firstRound.numberofMatches;i++){
-    $('#round0').find('#round0match'+i).append(
-      firstRound.Matches[i].Player1.name+
-       "<input type='button' class='btn btn-default' value='Win'id='"+
-       "round0match"+
-       i+
-       "Player0Wins'"+
-       ">"+
-       "<p>"+
-       firstRound.Matches[i].Player2.name+
-       "<input type='button' class='btn btn-default' value='Win'id='"+
-       "round0match"+
-       i+
-       "Player1Wins'"+
-       ">"
-    );
-    addButtonClicks(0,i);
+    drawMatch(firstRound.Matches[i],i,0);
     }
   }
   function addButtonClicks(roundofTournament,matchPosition){
@@ -80,4 +65,8 @@ export function drawMatch(Match,Matchposition,roundofTournament){
       addButtonClicks(roundofTournament,Matchposition);
 
 //Comprobar si esta vacio en negocio antes de añadir el jugador
+}
+export function showCongratulationsMessage(){
+  $('#finished')[0].innerText = "Congratulations to the winner";
+  $('#finished').show('slow');
 }

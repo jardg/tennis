@@ -11,7 +11,7 @@ export function isDuplicated(text){
 	});
 	return duplicated;
 }
-export function power_of_2(n) {
+export function isPowerof2(n) {
     return n && (n & (n - 1)) === 0;
 }
 export function getRandomInt(min, max) {
