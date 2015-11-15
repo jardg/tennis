@@ -1,0 +1,26 @@
+.form-area
+{
+  background-color: #FAFAFA;
+	margin: 10px 0px 60px;
+	border: 1px solid GREY;
+	}
+
+  #errorsummary {
+      margin-top:20px;
+      display: none
+  }
+  #finished {
+      margin-top:20px;
+      display: none
+  }
+.top-buffer { margin-top:10px; }
+.matchBox {
+    display: block;
+    padding: 0px;
+    margin-bottom: 10px;
+    min-height:30px;
+    background-color: #fff;
+    border: 1px solid #FFCC33;
+    border-radius: 4px;
+
+  }
