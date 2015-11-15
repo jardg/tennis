@@ -1,4 +1,5 @@
 import {addPlayer}  from '../app/playersinscription/addPlayerDialog.js';
+import {isRankDuplicated}  from '../app/playersinscription/addPlayerBusiness.js';
 import * as common from './common.js';
 export function generatePlayersIncreasingRankwithN(number){
   for(var i=0;i<number;i++){
@@ -17,7 +18,9 @@ export function generatePlayerswithRandomRanks(number,worstPlayerRank){
 }
 function addRandomRank(worstPlayerRank){
   do{
-    var randomRankForInvitedPlayer=common.getRandomInt(worstPlayerRank+1,25);
-  }while(common.isDuplicated(String(randomRankForInvitedPlayer)));
+    var randomRankForInvitedPlayer=common.getRandomInt(worstPlayerRank+1,300);
+
+  }while(isRankDuplicated(randomRankForInvitedPlayer));
+
 return randomRankForInvitedPlayer;
 }

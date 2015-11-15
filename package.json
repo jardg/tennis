@@ -11,6 +11,9 @@
   },
   "devDependencies": {
     "bootstrap": "^3.3.5",
+    "jasmine": "^2.3.2",
+    "jasmine-core": "^2.3.4",
+    "jasmine-es6": "0.0.18",
     "jspm": "^0.16.13"
   }
 }

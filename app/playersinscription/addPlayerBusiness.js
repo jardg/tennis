@@ -43,8 +43,8 @@ function isNameDuplicated(playerName){
   var tournamentplayers=tournamentBusiness.getListofPlayers()
   return tournamentplayers.find(function(a){return a.name===playerName;});
 }
-function isRankDuplicated(playerRank){
-  var tournamentplayers=tournamentBusiness.getListofPlayers()
+export function isRankDuplicated(playerRank){
+  var tournamentplayers=tournamentBusiness.getListofPlayers();
   return tournamentplayers.find(function(a){return a.rank===playerRank;});
 }
 export function getErrorMessage(error) {
