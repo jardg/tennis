@@ -1,5 +1,7 @@
 
-jspm_packages/*/*
+jspm_packages/
 jspm
 build.js
 build.js.map
+Tennis ES6 Exercise 2015.pdf
+node_modules/
